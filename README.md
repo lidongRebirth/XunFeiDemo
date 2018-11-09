@@ -8,7 +8,7 @@
 
 ![1541745213277](https://github.com/myfittinglife/MarkDown-Resource/blob/master/XunFeiDemo%E6%88%AA%E5%9B%BE2.png)
 
-##2、配置
+## 2、配置
 
 将Msc.jar和Sunflower.jar放入libs文件夹下，在main文件夹下创建jniLibs文件夹，将剩余的arm64-v8a、armeabi、armeabi-v7a、mips、mips64、x86、x86_64放入其中；在main文件夹下创建assets文件夹，将下载的assets目录下的iflytek目录全部放入其中
 
