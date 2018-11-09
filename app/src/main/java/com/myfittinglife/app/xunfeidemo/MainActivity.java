@@ -18,6 +18,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.gson.Gson;
 import com.iflytek.cloud.ErrorCode;
 import com.iflytek.cloud.InitListener;
 import com.iflytek.cloud.RecognizerListener;
@@ -301,7 +302,9 @@ public class MainActivity extends AppCompatActivity {
         public void onResult(RecognizerResult recognizerResult, boolean isLast) {       //isLast代表是否是最后一句话，表示全部结束
             Log.i(TAG, "onResult: " + recognizerResult.getResultString());
             //在这里而不在onEndOfSpeech()中赋值，是因为他会先执行onEndOfSpeech然后执行onResult,所以会导致标点符号赋值不上
-            tvPanel.append(JsonParser.parseIatResult(recognizerResult.getResultString()));
+
+//            tvPanel.append(JsonParser.parseIatResult(recognizerResult.getResultString()));        方式一解析
+            tvPanel.append(jsonTrans(recognizerResult.getResultString()));
 
         }
 
@@ -382,6 +385,17 @@ public class MainActivity extends AppCompatActivity {
             Log.i("xunfeiceshi", "xunFeiPermissionCheck: 有录音权限");
             return true;
         }
+    }
+
+    public String jsonTrans(String dataStr){
+        JsonData jsonData = new Gson().fromJson(dataStr, JsonData.class);
+        StringBuffer stringBuffer = new StringBuffer();
+        for(int i = 0;i<jsonData.getWs().size();i++){
+            for(int j = 0;j<jsonData.getWs().get(i).getCw().size();j++){
+                stringBuffer.append(jsonData.getWs().get(i).getCw().get(j).getW());
+            }
+        }
+        return stringBuffer.toString();
     }
 
 

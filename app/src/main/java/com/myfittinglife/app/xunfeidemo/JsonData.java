@@ -5,9 +5,9 @@ import java.util.List;
 /**
  * 作者    LD
  * 时间    2018/11/5 11:44
- * 描述    讯飞语音识别后返回的json字符串，仅提供查看
+ * 描述    讯飞语音识别后返回的json字符串，用于Gson解析
  */
-public class jason {
+public class JsonData {
     /**
      * sn : 1
      * ls : false
