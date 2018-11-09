@@ -359,7 +359,7 @@ public String jsonTrans(String dataStr){
 
 本Demo中使用了两种解析方法，第一种是有UI的，使用的是`JsonParser.parseIatResult(result)`JsonParser类中的parseIatResult()方法,另一种是没有UI的，使用Gson方式解析，调用jsonTrans()方法即可。
 
-##5、注意事项
+## 5、注意事项
 
 1、每个应用的SDK都不一样，都需要自己去下载，不要用别人的，否则会出现`SpeechRecognizer`为null的错误
 
